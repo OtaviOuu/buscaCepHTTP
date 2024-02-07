@@ -58,7 +58,8 @@ func SearchCep(cep string) (*CepInfo, error) {
 
 	var cepData CepInfo
 	error = json.Unmarshal(resp, &cepData)
-
+	if error != nil {
+		return nil, error
+	}
 	return &cepData, nil
-
 }
